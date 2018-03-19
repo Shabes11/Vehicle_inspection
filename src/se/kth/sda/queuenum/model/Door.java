@@ -7,8 +7,29 @@ package se.kth.sda.queuenum.model;
 
 /**
  *
- * @author tmp-sda-1178
+ * @author tmp-sda-1178.
  */
 public class Door {
     
+    private  boolean doorIsOpen;
+    
+    public Door(){
+       doorIsOpen = false;  
+     }
+    
+    
+    boolean getDoorStatus(){
+      return doorIsOpen;
+    }
+    
+    
+   
+    public void open(){
+      doorIsOpen = true;
+    }       
+     
+    
+    public void close(){
+      doorIsOpen=false;
+    }
 }
