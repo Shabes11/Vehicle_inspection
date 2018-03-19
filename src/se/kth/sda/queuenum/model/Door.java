@@ -7,7 +7,7 @@ package se.kth.sda.queuenum.model;
 
 /**
  *
- * @author tmp-sda-1178.
+ * @author tmp-sda-1178
  */
 public class Door {
     
