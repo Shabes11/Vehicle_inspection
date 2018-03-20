@@ -19,7 +19,7 @@ public class Garage {
     }
     
     public boolean openDoor(){
-        if (door.getDoorStatus() == true){
+        if (door.getDoorStatus() == false){
             door.open();
             return true;
         }
@@ -28,7 +28,7 @@ public class Garage {
        }
     
     public boolean closeDoor(){
-      if(customer.customerCameIn() == true){
+      if(door.getDoorStatus() == true){
         door.close();
         return true;
       }
