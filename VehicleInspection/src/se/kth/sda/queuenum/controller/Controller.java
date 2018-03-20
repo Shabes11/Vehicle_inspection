@@ -21,6 +21,7 @@ public class Controller {
     CheckList checklist;
     ArrayList<CheckListItem> list;
     InspectionClass inspectionclass;
+    Print print;
     int cost=0;    
     
     public Controller() {
@@ -28,7 +29,9 @@ public class Controller {
         garagemoney = new GarageMoney();
         queuenumber = new QueueNumber();
         inspectionclass = new InspectionClass();
-        initiateChecklistDatebase();
+        print = new Print();
+        database = new DatabaseOfCheckLists();
+        //initiateChecklistDatebase();
         
     }
 
@@ -42,7 +45,7 @@ public class Controller {
             case "4":processVehicleNumber();break;
             case "5":inspectionclass.performInspection(checklist);break;
             case "6":break;
-            case "7": 
+            case "7": print.printInspectionResult(checklist);break;
             
         }
     }

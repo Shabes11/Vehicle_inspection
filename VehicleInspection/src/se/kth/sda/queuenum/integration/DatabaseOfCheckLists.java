@@ -17,6 +17,7 @@ public class DatabaseOfCheckLists {
      */
     public DatabaseOfCheckLists(){
         databaseOfCheckLists = new HashMap<>();
+        initiateChecklistDatebase();
     }
     
     
@@ -60,9 +61,9 @@ public class DatabaseOfCheckLists {
         checklist1.addObject(checklistitem1);
         checklist1.addObject(checklistitem2);
         
-        database = new DatabaseOfCheckLists();
-        database.addCheckListToDatabase("SBA447", checklist1);
-        
+        //database = new DatabaseOfCheckLists();
+        //database.addCheckListToDatabase("SBA447", checklist1);
+        addCheckListToDatabase("SBA447", checklist1);
         
         CheckListItem checklistitem3 = new CheckListItem("Engine", 100);
         CheckListItem checklistitem4 = new CheckListItem("Engine Oil", 200);
@@ -73,9 +74,9 @@ public class DatabaseOfCheckLists {
         checklist2.addObject(checklistitem4);
         checklist2.addObject(checklistitem5);
         
-        database = new DatabaseOfCheckLists();
-        database.addCheckListToDatabase("SBA447", checklist1);
-        database.addCheckListToDatabase("SBA448", checklist2);
-        
+//        database = new DatabaseOfCheckLists();
+//        database.addCheckListToDatabase("SBA447", checklist1);
+//        database.addCheckListToDatabase("SBA448", checklist2);
+        addCheckListToDatabase("SBA448", checklist2);
     }
 }

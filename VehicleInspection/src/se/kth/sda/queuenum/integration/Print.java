@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.kth.sda.queuenum.view;
+package se.kth.sda.queuenum.integration;
 
 /**
  *
@@ -11,11 +11,12 @@ package se.kth.sda.queuenum.view;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 public class Print {
     /**
      * prints receipt for the money paid by the customer
      */
-    
+    CheckList checklist;
     public void printReceipt()
     {
        //print customer name
@@ -31,21 +32,27 @@ public class Print {
      * prints car inspection results after inspection.
      */
     //public void printInspectionResult(ArrayList<ChecklistItem> checklistitem)
-    public void printInspectionResult()
+    public void printInspectionResult(CheckList checklist)
     {   printReportHeading();
         String c0;
-        String c1;
+        String c1 = "Not Done";
         String c2;
         String c3;
-                
-//        for (CheckListItem checkListItem: checklistitem)
-//        {
-//            c0 = checkListItem.getInspectionItem();
-//            c1 = checkListItem.isInspectionStatus();
-//            c2 = checkListItem.isInspectionResult();
-//            c3 = checkListItem.getCost();
-//            System.out.printf("%-20s %-20s %-20s %-20s%n", c0, c1, c2, c3);
-//        }
+        
+        List<CheckListItem> checklistofcurrentcar  = checklist.getCheckList();
+        
+        for (CheckListItem checkListItem: checklistofcurrentcar)
+        {
+            c0 = checkListItem.getInspectionItem();
+            if(checkListItem.isInspectionStatus())
+            {
+                c1 = "Done";
+            }
+            
+            c2 = checkListItem.isInspectionResult();
+            c3 = String.valueOf(checkListItem.getCost());
+            System.out.printf("%-20s %-20s %-20s %-20s%n", c0, c1, c2, c3);
+        }
     }
     public void printReportHeading()
     {
