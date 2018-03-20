@@ -14,18 +14,22 @@ import java.util.List;
  */
 public class CheckList {
     
-    private List<CheckListItem> checkList;
+    private ArrayList<CheckListItem> checkList;
     
     public CheckList(){
         checkList = new ArrayList<>();
     }
 
-    public List<CheckListItem> getCheckList() {
+    public ArrayList<CheckListItem> getCheckList() {
         return checkList;
     }
 
-    public void setCheckList(List<CheckListItem> checkList) {
+    public void setCheckList(ArrayList<CheckListItem> checkList) {
         this.checkList = checkList;
     }
     
+    
+    public void addObject(CheckListItem newObject){
+        checkList.add(newObject);
+    }
 }

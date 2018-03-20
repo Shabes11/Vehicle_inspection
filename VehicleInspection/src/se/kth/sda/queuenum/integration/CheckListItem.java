@@ -13,7 +13,7 @@ public class CheckListItem {
     
     private String inspectionItem;
     private boolean inspectionStatus;
-    private boolean inspectionResult;
+    private String inspectionResult;
     private double cost;
 
     
@@ -22,7 +22,7 @@ public class CheckListItem {
         this.inspectionItem = inspectionItem;
         this.cost = cost;
         this.inspectionStatus = false;
-        this.inspectionResult = false;
+        this.inspectionResult = "Fail";
         
     }
 
@@ -34,7 +34,7 @@ public class CheckListItem {
         this.inspectionStatus = inspectionStatus;
     }
 
-    public void setInspectionResult(boolean inspectionResult) {
+    public void setInspectionResult(String inspectionResult) {
         this.inspectionResult = inspectionResult;
     }
 
@@ -51,7 +51,7 @@ public class CheckListItem {
         return inspectionStatus;
     }
 
-    public boolean isInspectionResult() {
+    public String isInspectionResult() {
         return inspectionResult;
     }
 

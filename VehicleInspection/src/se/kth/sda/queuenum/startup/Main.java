@@ -1,12 +1,12 @@
 package se.kth.sda.queuenum.startup;
 
-import se.kth.sda.queuenum.integration.CheckList;
-import se.kth.sda.queuenum.integration.CheckListItem;
-
-
 /**
  * Starts the application.
  */
+
+import se.kth.sda.queuenum.view.*;
+import se.kth.sda.queuenum.controller.*;      
+
 public class Main {
     /**
      * This is the main method of the entire application.
@@ -15,6 +15,10 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        
+        Controller cont = new Controller();
+        ApplicationView applicationView = new ApplicationView(cont);
+        applicationView.applicationView();
     }
     
     
