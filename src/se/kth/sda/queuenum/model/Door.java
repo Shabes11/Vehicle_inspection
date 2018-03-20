@@ -25,11 +25,13 @@ public class Door {
     
    
     public void open(){
+        System.out.print("Door is open");
       doorIsOpen = true;
     }       
      
     
     public void close(){
-      doorIsOpen=false;
+        System.out.print("Door is close");
+        doorIsOpen=false;
     }
 }
