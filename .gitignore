@@ -3,5 +3,5 @@
 /build/
 /.zip/
 build.xml
-manifest.xml
+manifest.mf
 /nbproject/
