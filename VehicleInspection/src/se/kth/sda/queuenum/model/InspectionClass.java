@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 /**
  * Creates CheckList with inspections and perform car inspections
+ * @author Group 2
  */
 public class InspectionClass {
     

@@ -1,20 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.kth.sda.queuenum.model;
+import java.util.Date;
 
 /**
- *
- * @author tmp-sda-1161
+ * Strores and accepts money
+ * @author Group 2
  */
-import java.util.Date;
+
 public class GarageMoney {
     private double moneyFromCard;
     private double moneyFromCash;
     private double totalMoney;
     Date dateofMoney;
+    
+    /**
+     * Set the date for today's date
+     */
     public GarageMoney(){
         dateofMoney = new Date();
     }
@@ -28,10 +28,20 @@ public class GarageMoney {
         return totalMoney;
     }
     
+    /**
+     * Accepts money from the card and adding it to total money
+     * @param cost The amount the customer is charged
+     */
     public void accumulateCardMoney(double cost){
         this.moneyFromCard += cost;
         accumulateTotalMoney(cost);
     }
+    /**
+     * Calculates the change the customer should receive back
+     * @param moneyFromCash Money received from the customer
+     * @param cost  Cost of the inspection
+     * @return Change for the customer
+     */
     public double accumulateCashMoney(double moneyFromCash, double cost){
         this.moneyFromCash += cost;
         double change = moneyFromCash - cost;
@@ -40,6 +50,10 @@ public class GarageMoney {
         }
         return change;
     }
+    /**
+     * Adds money to the business cash
+     * @param cost Cost of the inspection
+     */
     private void accumulateTotalMoney(double cost){
         this.totalMoney += cost; 
     }

@@ -1,27 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.kth.sda.queuenum.model;
 
 
-/*
-    
-     * @author tmp-sda-1178
+/**
+ * Responsible for opening and closing the garages's door
+ *
+ * @author Group 2
  */
 public class Door {
 
     private boolean doorIsOpen;
 
+    /**
+     * Door is closed as default
+     */
     public Door() {
         doorIsOpen = false;
     }
 
-    boolean getDoorStatus() {
+    public boolean getDoorStatus() {
         return doorIsOpen;
     }
-
+    /**
+     * Opens the door
+     */
     public void open() {
 
         if (!doorIsOpen) {
@@ -35,7 +36,9 @@ public class Door {
         }
 
     }
-
+    /**
+    * Closes the door
+    */
     public void close() {
 
         if (doorIsOpen) {
