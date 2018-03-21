@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.kth.sda.queuenum.model;
+package se.kth.sda.queuenum.startup;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,11 +14,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author tmp-sda-1178
+ * @author tmp-sda-1161
  */
-public class QueueNumberTest {
+public class MainTest {
     
-    public QueueNumberTest() {
+    public MainTest() {
     }
     
     @BeforeClass
@@ -38,28 +38,27 @@ public class QueueNumberTest {
     }
 
     /**
-     * Test of nextQueueNumber method, of class QueueNumber.
+     * Test of main method, of class Main.
      */
-    @Test
-    public void testNextQueueNumber() {
-        System.out.println("nextQueueNumber");
-        QueueNumber instance = new QueueNumber();
-        instance.nextQueueNumber();
+    @org.junit.Test
+    public void testMain() {
+        System.out.println("main");
+        String[] args = null;
+        Main.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getCurrentNo method, of class QueueNumber.
+     * Test of createCheckList method, of class Main.
      */
-    @Test
-    public void testGetCurrentNo() {
-        QueueNumber instance = new QueueNumber();
-        int expResult = 0;
-        int result = instance.getCurrentNo();
-        assertEquals(expResult, result);
+    @org.junit.Test
+    public void testCreateCheckList() {
+        System.out.println("createCheckList");
+        Main instance = new Main();
+        instance.createCheckList();
         // TODO review the generated test code and remove the default call to fail.
-       
+        fail("The test case is a prototype.");
     }
     
 }
