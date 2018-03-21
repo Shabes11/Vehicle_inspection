@@ -11,10 +11,12 @@ package se.kth.sda.queuenum.model;
  */
 import java.util.Date;
 public class GarageMoney {
+    
     private double moneyFromCard;
     private double moneyFromCash;
     private double totalMoney;
     Date dateofMoney;
+    
     public GarageMoney(){
         dateofMoney = new Date();
     }
@@ -32,6 +34,9 @@ public class GarageMoney {
         this.moneyFromCard += cost;
         accumulateTotalMoney(cost);
     }
+   
+    
+    
     public double accumulateCashMoney(double moneyFromCash, double cost){
         this.moneyFromCash += cost;
         double change = moneyFromCash - cost;
@@ -40,11 +45,11 @@ public class GarageMoney {
         }
         return change;
     }
-    private void accumulateTotalMoney(double cost){
+    public void accumulateTotalMoney(double cost){
         this.totalMoney += cost; 
     }
     public Date getDate(){
         return dateofMoney;
     }
-            
+        
 }

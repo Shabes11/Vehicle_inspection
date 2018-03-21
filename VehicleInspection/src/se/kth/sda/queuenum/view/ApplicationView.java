@@ -55,10 +55,12 @@ public class ApplicationView {
         }
         controller.controlprintTotalsReport();
     }
+    
     public void showMenu()
     {
-        System.out.println("**********************************");
-        System.out.println("Welcome to Car Inspection Company");
+        System.out.println("********************************************");
+        System.out.println("<< Welcome to Car Inspection Company >> ");
+        System.out.println("**********<< Main Menu >>*****************");
         System.out.println(">> 1 : Show Queue number");
         System.out.println(">> 2 : Open Door");
         System.out.println(">> 3 : Close Door");
@@ -68,6 +70,8 @@ public class ApplicationView {
         System.out.println(">> 7 : Start Inspection");
         System.out.println(">> 8 : Print Inspection Result");
         System.out.println(">> 9 : Exit and Print Today's Collection");
+        System.out.println("************************************************** ");
+        System.out.println("<<<< Please enter the required no from the list above >>>> ");
         System.out.print(">> ");
         
     }

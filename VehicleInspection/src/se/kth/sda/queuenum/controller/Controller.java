@@ -26,6 +26,7 @@ public class Controller {
     double cost=0;    
     double change = 0;
     double tenderedCash;
+    
     public Controller() {
         garage = new Garage();
         garagemoney = new GarageMoney();
@@ -35,16 +36,20 @@ public class Controller {
         database = new DatabaseOfCheckLists();
         paymentAuthorization = new PaymentAuthorization();
     }
+    
     public void controlQueueNumber(){
         queuenumber.displayQueueNumber();
         queuenumber.nextQueueNumber();
     }
+    
     public void controlOpenDoor(){
         garage.openDoor();
     }
+    
     public void controlCloseDoor(){
         garage.closeDoor();
     }
+    
     public double controlProcessVehicleNumber(String vehNum)
     {
         try {
@@ -59,6 +64,7 @@ public class Controller {
         }
         return cost;
     }
+    
     public boolean controlProcessCardPayment(String cardNumber){
         if(paymentAuthorization.cardAuthorization(cardNumber))
         {
@@ -67,20 +73,26 @@ public class Controller {
         }
         return false;
     }
+    
+    
     public double controlProcessCashPayment(double tenderedMoney){
         tenderedCash = tenderedMoney;
         return change = garagemoney.accumulateCashMoney(tenderedMoney,cost);
     }
+    
     public void controlperformInspection(){
         inspectionclass.performInspection(checklist);
     }
+    
     public void controlPrintInspectionResult(){
         print.printInspectionResult(checklist);
     }
+    
     public void controlPrintPaymentReceipt(boolean card){
         print.printPaymentReceipt(card,cost,tenderedCash,change);
                 
     }
+    
     public void controlprintTotalsReport(){
         print.printTotalsReport(garagemoney.getDate(),
                                 garagemoney.getCardMoney(),
