@@ -77,9 +77,7 @@ public class GarageMoneyTest {
         double cost = 5;
         GarageMoney instance = new GarageMoney();
         double expResult = -6 ;
-        System.out.println(expResult);
         double result = instance.accumulateCashMoney(moneyFromCash, cost);
-        System.out.println(result);
         assertEquals("",expResult, result, 0.0);
         
     }
