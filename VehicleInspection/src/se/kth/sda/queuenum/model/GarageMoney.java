@@ -11,41 +11,40 @@ package se.kth.sda.queuenum.model;
  */
 import java.util.Date;
 public class GarageMoney {
-    
     private double moneyFromCard;
     private double moneyFromCash;
     private double totalMoney;
     Date dateofMoney;
-    public GarageMoney()
-    {
+    public GarageMoney(){
         dateofMoney = new Date();
     }
-    
-    public double getCardMoney()
-    {
+    public double getCardMoney(){
         return moneyFromCard;
     }
-    public double getCashMoney()
-    {
+    public double getCashMoney(){
         return moneyFromCash;
     }
-    public double getTotalMoney()
-    {
+    public double getTotalMoney(){
         return totalMoney;
     }
     
-    public void accumulateCardMoney(double moneyFromCard)
-    {
-        this.moneyFromCard += moneyFromCard;
-        accumulateTotalMoney();
+    public void accumulateCardMoney(double cost){
+        this.moneyFromCard += cost;
+        accumulateTotalMoney(cost);
     }
-    public void accumulateCashMoney(double moneyFromCash)
-    {
-        this.moneyFromCash += moneyFromCash;
-        accumulateTotalMoney();
+    public double accumulateCashMoney(double moneyFromCash, double cost){
+        this.moneyFromCash += cost;
+        double change = moneyFromCash - cost;
+        if(change > 0){
+            accumulateTotalMoney(cost);
+        }
+        return change;
     }
-    private void accumulateTotalMoney()
-    {
-        this.totalMoney = this.moneyFromCard + this.moneyFromCash;
+    private void accumulateTotalMoney(double cost){
+        this.totalMoney += cost; 
     }
+    public Date getDate(){
+        return dateofMoney;
+    }
+            
 }

@@ -17,82 +17,75 @@ public class Controller {
     private Garage garage;
     private GarageMoney garagemoney;
     private QueueNumber queuenumber;
-    DatabaseOfCheckLists database;
-    CheckList checklist;
-    ArrayList<CheckListItem> list;
-    InspectionClass inspectionclass;
-    int cost=0;    
-    
+    private DatabaseOfCheckLists database;
+    private CheckList checklist;
+    private ArrayList<CheckListItem> list;
+    private InspectionClass inspectionclass;
+    private Print print;
+    private PaymentAuthorization paymentAuthorization;
+    double cost=0;    
+    double change = 0;
+    double tenderedCash;
     public Controller() {
         garage = new Garage();
         garagemoney = new GarageMoney();
         queuenumber = new QueueNumber();
         inspectionclass = new InspectionClass();
-        initiateChecklistDatebase();
-        
-    }
-
-    
-    public void processCommand(String option) {
-        switch (option) {
-            case "1":queuenumber.displayQueueNumber();
-                     queuenumber.nextQueueNumber();break;
-            case "2":garage.openDoor();break;
-            case "3":garage.closeDoor();break;
-            case "4":processVehicleNumber();break;
-            case "5":inspectionclass.performInspection(checklist);break;
-            case "6":break;
-            case "7": 
-            
-        }
-    }
-    public void initiateChecklistDatebase()
-    {
-        CheckListItem checklistitem1 = new CheckListItem("Engine", 100);
-        CheckListItem checklistitem2 = new CheckListItem("Engine Oil", 200);
-        
-        CheckList checklist1 = new CheckList();
-        checklist1.addObject(checklistitem1);
-        checklist1.addObject(checklistitem2);
-        
+        print = new Print();
         database = new DatabaseOfCheckLists();
-        database.addCheckListToDatabase("SBA447", checklist1);
-        
-        
-        CheckListItem checklistitem3 = new CheckListItem("Engine", 100);
-        CheckListItem checklistitem4 = new CheckListItem("Engine Oil", 200);
-        CheckListItem checklistitem5 = new CheckListItem("Door", 200);
-        
-        CheckList checklist2 = new CheckList();
-        checklist2.addObject(checklistitem3);
-        checklist2.addObject(checklistitem4);
-        checklist2.addObject(checklistitem5);
-        
-        database = new DatabaseOfCheckLists();
-        database.addCheckListToDatabase("SBA447", checklist1);
-        database.addCheckListToDatabase("SBA448", checklist2);
-        
+        paymentAuthorization = new PaymentAuthorization();
     }
-    
-    public void processVehicleNumber()
+    public void controlQueueNumber(){
+        queuenumber.displayQueueNumber();
+        queuenumber.nextQueueNumber();
+    }
+    public void controlOpenDoor(){
+        garage.openDoor();
+    }
+    public void controlCloseDoor(){
+        garage.closeDoor();
+    }
+    public double controlProcessVehicleNumber(String vehNum)
     {
-        
-        System.out.println("enter vehicle reg number");
-        String vehNum = scanner.next();
-        
         try {
-            
             checklist = database.getCheckList(vehNum);
             list =  checklist.getCheckList();
-            for (CheckListItem checklistitem:list)
-            {
+            for (CheckListItem checklistitem:list){
                 cost += checklistitem.getCost();
             }
-
-            System.out.println("Cost of vehicle inspection is " + cost);
         }
         catch(NullPointerException e){
-            System.out.println("Not a valid Registration number");
+            System.out.println("No Checklist found");
         }
+        return cost;
     }
-}
+    public boolean controlProcessCardPayment(String cardNumber){
+        if(paymentAuthorization.cardAuthorization(cardNumber))
+        {
+            garagemoney.accumulateCardMoney(cost);
+            return true;
+        }
+        return false;
+    }
+    public double controlProcessCashPayment(double tenderedMoney){
+        tenderedCash = tenderedMoney;
+        return change = garagemoney.accumulateCashMoney(tenderedMoney,cost);
+    }
+    public void controlperformInspection(){
+        inspectionclass.performInspection(checklist);
+    }
+    public void controlPrintInspectionResult(){
+        print.printInspectionResult(checklist);
+    }
+    public void controlPrintPaymentReceipt(boolean card){
+        print.printPaymentReceipt(card,cost,tenderedCash,change);
+                
+    }
+    public void controlprintTotalsReport(){
+        print.printTotalsReport(garagemoney.getDate(),
+                                garagemoney.getCardMoney(),
+                                garagemoney.getCashMoney(),
+                                garagemoney.getTotalMoney());
+    }
+            
+ }

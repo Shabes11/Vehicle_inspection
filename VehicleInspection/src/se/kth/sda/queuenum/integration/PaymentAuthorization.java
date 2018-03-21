@@ -11,7 +11,7 @@ package se.kth.sda.queuenum.integration;
  */
 public class PaymentAuthorization {
     
-    public boolean cardAuthorization(int cardNumber)
+    public boolean cardAuthorization(String cardNumber)
     {
         /*
         verify if card from the bank
