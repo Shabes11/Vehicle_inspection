@@ -1,4 +1,4 @@
-package se.kth.sda.queuenum.integration;
+package se.kth.sda.vehicleInspection.integration;
 
 import java.util.ArrayList;
 import java.util.List;

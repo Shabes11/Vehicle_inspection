@@ -1,4 +1,4 @@
-package se.kth.sda.queuenum.model;
+package se.kth.sda.vehicleInspection.model;
 import java.util.Date;
 
 /**
@@ -43,9 +43,10 @@ public class GarageMoney {
      * @return Change for the customer
      */
     public double accumulateCashMoney(double moneyFromCash, double cost){
-        this.moneyFromCash += cost;
+        
         double change = moneyFromCash - cost;
-        if(change > 0){
+        if(change >= 0){
+            this.moneyFromCash += cost;
             accumulateTotalMoney(cost);
         }
         return change;

@@ -1,4 +1,4 @@
-package se.kth.sda.queuenum.model;
+package se.kth.sda.vehicleInspection.model;
 /**
  * Opens and Close the door to the garage
  * @author Group 2

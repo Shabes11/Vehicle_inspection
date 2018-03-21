@@ -1,4 +1,4 @@
-package se.kth.sda.queuenum.model;
+package se.kth.sda.vehicleInspection.model;
 
 /**
  * Manages and stores queue number.
@@ -23,7 +23,8 @@ public class QueueNumber {
      * Display current queue number on the screen
      */
     public void displayQueueNumber(){
-        System.out.println("Current Que Number is: "+getCurrentNo() );
+        System.out.println("Current Que Number is: " +getCurrentNo() );
+        
     }
             
 }

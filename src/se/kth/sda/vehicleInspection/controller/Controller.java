@@ -1,7 +1,7 @@
-package se.kth.sda.queuenum.controller;
+package se.kth.sda.vehicleInspection.controller;
 
-import se.kth.sda.queuenum.model.*;
-import se.kth.sda.queuenum.integration.*;
+import se.kth.sda.vehicleInspection.model.*;
+import se.kth.sda.vehicleInspection.integration.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**

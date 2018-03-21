@@ -15,9 +15,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import se.kth.sda.queuenum.integration.CheckList;
-import se.kth.sda.queuenum.integration.CheckListItem;
-import se.kth.sda.queuenum.model.InspectionClass;
+import se.kth.sda.vehicleInspection.integration.CheckList;
+import se.kth.sda.vehicleInspection.integration.CheckListItem;
+import se.kth.sda.vehicleInspection.model.InspectionClass;
 
 /**
  *
@@ -64,8 +64,6 @@ public class InspectionClassTest {
         PrintStream originalSysOut = System.out;
         System.setOut(new PrintStream(outContent));
         
-//        
-//        
         CheckList checkList = null;
         InspectionClass instance = new InspectionClass();
         CheckList finalCheckList = instance.performInspection(checkList);
@@ -95,21 +93,16 @@ public class InspectionClassTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         
-        
         CheckList checkList = new CheckList();
         InspectionClass instance = new InspectionClass();
         CheckListItem item = new CheckListItem("Roof", 100);
         checkList.addObject(item);
         
-        
-        
-       
         boolean expResult = true;
         CheckList checkListAfter = instance.performInspection(checkList);
         
         boolean result = checkListAfter.getCheckList().get(0).isInspectionStatus();
         assertEquals("The inspection was not performed", expResult, result);
-        
     }
     
 }

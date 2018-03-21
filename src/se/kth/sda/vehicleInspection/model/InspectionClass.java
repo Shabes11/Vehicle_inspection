@@ -1,9 +1,9 @@
-package se.kth.sda.queuenum.model;
+package se.kth.sda.vehicleInspection.model;
 
 import java.util.List;
-import se.kth.sda.queuenum.integration.CheckList;
-import se.kth.sda.queuenum.integration.CheckListItem;
-import se.kth.sda.queuenum.integration.DatabaseOfCheckLists;
+import se.kth.sda.vehicleInspection.integration.CheckList;
+import se.kth.sda.vehicleInspection.integration.CheckListItem;
+import se.kth.sda.vehicleInspection.integration.DatabaseOfCheckLists;
 import java.util.Scanner;
 
 /**
