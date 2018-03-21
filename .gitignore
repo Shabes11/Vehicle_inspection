@@ -1,1 +1,7 @@
 /VehicleInspection/build/
+/build/
+/.zip/
+build.xml
+manifest.mf
+/nbproject/
+
